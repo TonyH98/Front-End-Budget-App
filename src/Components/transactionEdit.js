@@ -37,6 +37,9 @@ function TransactionEdit(){
        
       };
 
+
+      let currentDate = new Date().toJSON().slice(0, 10)
+
       return(
         <div className="New">
         <form onSubmit={handleSubmit}>
@@ -54,7 +57,7 @@ function TransactionEdit(){
           <label htmlFor="amount">Amount:</label>
           <input
             id="amount"
-            type="text"
+            type="number"
             required
             value={transaction.amount}
             onChange={handleTextChange}
@@ -64,7 +67,8 @@ function TransactionEdit(){
           <label htmlFor="date">Date:</label>
           <input
             id="date"
-            type="text"
+            type="date"
+            max={currentDate}
             value={transaction.date}
             onChange={handleTextChange}
           />

@@ -36,3 +36,59 @@
     transform: rotate(360deg);
   }
 }
+
+
+nav{
+  background-color: #002D62;
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr
+}
+
+.new-transaction{
+  margin-top: 30px;
+  margin-left: 500px;
+  height: 40px;
+  background-color: azure;
+  cursor: pointer;
+}
+
+
+.home-page-link{
+color: #A9A9A9;
+font-size: 30px;
+
+font-family: Courier, monospace;
+}
+
+a:link{
+  color: #A9A9A9;
+}
+
+a:visited{
+  color: #A9A9A9
+}
+
+table{
+  font-family: arial, sans-serif;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  
+}
+
+.details{
+  border: black solid 1px;
+  margin-left: 125px;
+  margin-right: 125px;
+  background-color: lightblue;
+}
+

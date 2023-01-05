@@ -22,29 +22,42 @@ function Transactions(){
       return sum.toFixed(2)
     };
   const total = getTotal(transaction)
-console.log(transaction)
+
+
+  function handleColor(){
+    if(total >= 1000){
+        return  <h2>Bank Account Total: <span style={{color: "green"}}>${total}</span></h2>
+    }
+    if(total < 1000){
+        if(total >= 0){
+            return  <h2>Bank Account Total: <span style={{color: "black"}}>${total}</span></h2>
+        }
+    }
+    if(total < 0){
+        return  <h2>Bank Account Total: <span style={{color: "red"}}>${total}</span></h2>
+    }
+}
 
 
     return(
         <div>
-          <h2>Bank Account Total: ${total}</h2>
-        <section>
+          <div>
+          {handleColor()}
+          </div>
           <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <body className="transaction-table">
-              {transaction.map((ta, index) => {
-                return <Transaction key={index} ta={ta} index={index} />;
-              })}
-            </body>
+       <tr className="three-sections">
+         <th>Date</th>
+         <th>Category</th>
+         <th>Amount</th>
+       </tr>
+       {transaction.map((ta , index) => {
+         return(
+
+           <Transaction key={index} ta={ta} index={index}/>
+         )
+       })}
+
           </table>
-        </section>
       </div>
 
 

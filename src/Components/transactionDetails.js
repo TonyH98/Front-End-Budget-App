@@ -20,6 +20,7 @@ function TransactionDetails(){
     
 
 
+
     useEffect(() => {
         axios.get(`${API}/transaction/${index}`)
         .then(res => setTransaction(res.data))
@@ -27,14 +28,13 @@ function TransactionDetails(){
 
      return(
         <article>
-         <div className="details">
         <h1>Show</h1>
+         <div className="details">
         <h2>
           {transaction.category}
         </h2>
-        <h3>{transaction.amount}</h3>
-        <p>{transaction.date}</p>
-        <p>{transaction.item_name}</p>
+        <h3>{transaction.amount < 0 ? `Spent $${transaction.amount} on ${transaction.item_name}` : `Gained $${transaction.amount} from ${transaction.item_name}`}</h3>
+        <p>Date of Transaction: <span style={{fontWeight:"bold"}}>{transaction.date}</span> </p>
          </div>
       <br></br>
 
