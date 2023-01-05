@@ -18,8 +18,7 @@ function TransactionDetails(){
         .catch((err) => console.error(err));
      }
     
-
-
+ 
 
     useEffect(() => {
         axios.get(`${API}/transaction/${index}`)

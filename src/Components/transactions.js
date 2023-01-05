@@ -39,6 +39,12 @@ function Transactions(){
 }
 
 
+const sortDate = transaction.sort((a , b) => {
+  return new Date(b.date) - new Date(a.date)
+})
+
+
+
     return(
         <div>
           <div>
@@ -50,7 +56,7 @@ function Transactions(){
          <th>Category</th>
          <th>Amount</th>
        </tr>
-       {transaction.map((ta , index) => {
+       {sortDate.map((ta , index) => {
          return(
 
            <Transaction key={index} ta={ta} index={index}/>
