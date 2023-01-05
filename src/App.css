@@ -72,16 +72,18 @@ a:visited{
 table{
   font-family: arial, sans-serif;
   width: 100%;
+ 
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 5px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #002D62;
+  color: white
   
 }
 
@@ -89,6 +91,17 @@ tr:nth-child(even) {
   border: black solid 1px;
   margin-left: 125px;
   margin-right: 125px;
-  background-color: lightblue;
+  background-color: #002D62;
+  box-shadow: 5px 10px;
 }
 
+
+.buttons{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.transaction-buttons{
+  background-color: white;
+  height: 20px;
+}

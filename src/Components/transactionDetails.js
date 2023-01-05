@@ -30,11 +30,11 @@ function TransactionDetails(){
         <article>
         <h1>Show</h1>
          <div className="details">
-        <h2>
-          {transaction.category}
+        <h2 style={{color:"white"}}>
+          Category: {transaction.category}
         </h2>
-        <h3>{transaction.amount < 0 ? `Spent $${transaction.amount} on ${transaction.item_name}` : `Gained $${transaction.amount} from ${transaction.item_name}`}</h3>
-        <p>Date of Transaction: <span style={{fontWeight:"bold"}}>{transaction.date}</span> </p>
+        <h3 style={{color:"white"}}>{transaction.amount < 0 ? `Spent $${transaction.amount * (-1)} on ${transaction.item_name}` : `Gained $${transaction.amount} from ${transaction.item_name}`}</h3>
+        <p style={{color:"white"}}>Date of Transaction: <span style={{fontWeight:"bold"}}>{transaction.date}</span> </p>
          </div>
       <br></br>
 
