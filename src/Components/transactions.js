@@ -1,4 +1,5 @@
 import { useState , useEffect} from "react";
+import { Link } from "react-router-dom";
 import Transaction from "./transaction";
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL
@@ -23,6 +24,7 @@ function Transactions(){
     };
   const total = getTotal(transaction)
 
+  console.log(transaction)
 
   function handleColor(){
     if(total >= 1000){
@@ -62,6 +64,9 @@ const sortDate = transaction.sort((a , b) => {
        })}
 
           </table>
+          <Link to="/transaction/chart">
+          <buton>Chart</buton>
+          </Link>
       </div>
 
 
