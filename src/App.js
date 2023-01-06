@@ -1,28 +1,49 @@
 import './App.css';
 import Navigate from './Components/navigate';
 import Home from './Components/Home';
-import Transactions from './Components/transactions';
+import {Transactions} from './Components/transactions'
+import { getTotal } from './Components/transactions';
+import { handleColor } from './Components/transactions';
 import TransactionDetails from './Components/transactionDetails';
 import TransactionNew from './Components/transactionNew';
 import TransactionEdit from './Components/transactionEdit';
-import TransactionChart from './Components/transactionChart';
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState , useEffect} from "react";
+import axios from "axios";
+const API = process.env.REACT_APP_API_URL
+
 
 function App() {
+  const [transaction , setTransaction] = useState([])
+  useEffect(()=> {
+    axios.get(`${API}/transaction`)
+    .then((res) => setTransaction(res.data))
+    .catch(err => console.log(err))
+    }, [])
+
+
+
+
+
+const total = getTotal(transaction)
+
+console.log(total)
 
 
   return (
     <div className="App">
       <Router>
         <Navigate/>
+        {handleColor(total)}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="transaction" element={<Transactions/>}/>
+            <Route path="transaction" element={<Transactions transaction={transaction}/>}/>
             <Route path="/transaction/:index" element={<TransactionDetails/>}/>
             <Route path="/transaction/new" element={<TransactionNew/>}/>
             <Route path="/transaction/:index/edit" element={<TransactionEdit/>}/>
-            <Route path="/transaction/chart" element={<TransactionChart/>}/>
+           \
             <Route path="*"/>
           </Routes>
         </main>
