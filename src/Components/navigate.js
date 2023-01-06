@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 
 export default function Navigate() {
+ 
+
   return (
     <nav>
       <h1 className="home-page-link">

@@ -43,8 +43,6 @@ const sortDate = transaction.sort((a , b) => {
   return new Date(b.date) - new Date(a.date)
 })
 
-
-
     return(
         <div>
           <div>
@@ -53,7 +51,7 @@ const sortDate = transaction.sort((a , b) => {
           <table>
        <tr className="three-sections">
          <th>Date</th>
-         <th>Category</th>
+         <th>Name</th>
          <th>Amount</th>
        </tr>
        {sortDate.map((ta , index) => {
