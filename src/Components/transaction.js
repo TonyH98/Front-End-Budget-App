@@ -36,7 +36,7 @@ function handleBackGroundColor(option){
         
       </td>
       <td>
-       ${handleBackGroundColor(ta.amount)}
+       ${handleBackGroundColor(ta.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}
       </td>
     </tr>
    )

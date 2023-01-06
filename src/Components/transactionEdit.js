@@ -63,6 +63,7 @@ function TransactionEdit(){
           <input
             id="amount"
             type="number"
+            step="0.01"
             required
             value={transaction.amount}
             onChange={handleTextChange}
