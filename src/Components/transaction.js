@@ -2,6 +2,29 @@ import { Link } from "react-router-dom"
 
 
 function Transaction({ta , index}){
+
+function handleBackGroundColor(option){
+  if(ta.amount < 0){
+    return(
+
+      <td style={{backgroundColor:"lightpink"}}>{option}</td>
+    )
+  }
+  if(ta.amount >= 0){
+    return(
+
+      <td style={{backgroundColor:"lightgreen"}}>{option}</td>
+    )
+  }
+}
+
+
+
+
+
+
+
+
    return (
     <tr>
       <td>
@@ -13,7 +36,7 @@ function Transaction({ta , index}){
         
       </td>
       <td>
-       ${ta.amount}
+       ${handleBackGroundColor(ta.amount)}
       </td>
     </tr>
    )

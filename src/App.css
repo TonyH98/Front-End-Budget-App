@@ -62,11 +62,11 @@ font-family: Courier, monospace;
 }
 
 a:link{
-  color: #A9A9A9;
+  color: #055b90;
 }
 
 a:visited{
-  color: #A9A9A9
+  color: #055b90
 }
 
 table{
@@ -81,11 +81,11 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
   background-color: #002D62;
   color: white
   
-}
+} */
 
 .details{
   border: black solid 1px;
