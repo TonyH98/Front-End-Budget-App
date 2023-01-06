@@ -18,6 +18,10 @@ function TransactionNew(){
         setTransaction({ ...transaction, [event.target.id]: event.target.value });
       };
 
+      const handleSelect = (event) => {
+        setTransaction({...transaction, category: event.target.value })
+      }
+
 
       const handleSubmit = (event) => {
         event.preventDefault();
@@ -65,12 +69,20 @@ function TransactionNew(){
           <br></br>
           <br></br>
           <label htmlFor="category">Category:</label>
-          <input
-            id="category"
-            type="text"
-            value={transaction.category}
-            onChange={handleTextChange}
-          />
+          <select id="category" onChange={handleSelect}>
+          <option value=""></option>
+          <option value="income">Income</option>
+          <option value="taxes">Taxes</option>
+          <option value="education">Education</option>
+          <option value="insurance">Insurance</option>
+          <option value="house">House</option>
+          <option value="kids">Kids</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="pets">Pets</option>
+          <option value="car">Car</option>
+          <option value="groceries">Groceries</option>
+          <option value="other">Other</option>
+        </select>
           <br></br>
           <br></br>
         <br></br>
