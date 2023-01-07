@@ -1,7 +1,6 @@
 import { useState , useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import Transaction from "./transaction";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_API_URL
@@ -64,15 +63,22 @@ const currentPageData = transaction
 const pageCount = Math.ceil(transaction.length/pageData) 
 
 
+const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
+
+const map = category.map((c) => {
+  return c
+})
+
 function handleCategory(category){
-  setFilter([...filter, category])
+  setFilter(category)
 }
 
-function filterCategory(fc){
-  const filter = transaction.filter((t) => t.category === fc);
+function filterCategory(e){
+  const filter = transaction.filter((t) => t.category === e.target.value);
   handleCategory(filter)
 }
 
+console.log(filter)
 
     return(
         <div>
@@ -94,7 +100,14 @@ function filterCategory(fc){
          />  
             }
           </div>
-          
+          <select onChange={filterCategory}>
+            <option value=""></option>
+            {category.map((c) => {
+              return(
+                <option value={c}>{c}</option>
+              )
+            })} 
+          </select>
           <table>
        <tr className="three-sections">
          <th>Date</th>

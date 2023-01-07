@@ -72,17 +72,17 @@ function TransactionNew(){
           <label htmlFor="category">Category:</label>
           <select id="category" onChange={handleSelect}>
           <option value=""></option>
-          <option value="income">Income</option>
-          <option value="taxes">Taxes</option>
-          <option value="education">Education</option>
-          <option value="insurance">Insurance</option>
-          <option value="house">House</option>
-          <option value="kids">Kids</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="pets">Pets</option>
-          <option value="car">Car</option>
-          <option value="groceries">Groceries</option>
-          <option value="other">Other</option>
+          <option value="Income">Income</option>
+          <option value="Taxes">Taxes</option>
+          <option value="Education">Education</option>
+          <option value="Insurance">Insurance</option>
+          <option value="House">House</option>
+          <option value="Kids">Kids</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Pets">Pets</option>
+          <option value="Car">Car</option>
+          <option value="Groceries">Groceries</option>
+          <option value="Other">Other</option>
         </select>
           <br></br>
           <br></br>
