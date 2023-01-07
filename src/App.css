@@ -115,3 +115,7 @@ td, th {
     cursor: pointer;
     list-style: none;
 }
+
+.No-Data{
+  text-align: center;
+}

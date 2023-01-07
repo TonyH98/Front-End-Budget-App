@@ -6,12 +6,12 @@ import axios from "axios";
 const API = process.env.REACT_APP_API_URL
 
 
-const pageData = 5
+ const pageData = 5
 
 function Transactions(){
   const [transaction , setTransaction] = useState([])
   const [filter , setFilter] = useState([])
-  const [currentPage, setCurrentPage] = useState(0)
+   const [currentPage, setCurrentPage] = useState(0)
   
   useEffect(()=> {
     axios.get(`${API}/transaction`)
@@ -46,39 +46,37 @@ function Transactions(){
 
   }
 
+  const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
+  
+  
+  
+  function handleCategory(category){
+    setFilter(category)
+  }
+  
+  function filterCategory(e){
+    const filter = transaction.filter((t) => t.category === e.target.value);
+    handleCategory(filter)
+  }
 
 
 
-function handlePageChange ({selected: selectedPage}){
-  setCurrentPage(selectedPage)
-}
+ function handlePageChange ({selected: selectedPage}){
+   setCurrentPage(selectedPage)
+ }
 
-const offSet = currentPage * pageData
+ const offSet = currentPage * pageData
 
-const currentPageData = transaction
+ const currentPageData = filter
 .slice(offSet, offSet + pageData)
-.map((ta , index) => <Transaction key={index} ta={ta} index={index}/>)
+ .map((ta , index) => <Transaction key={index} ta={ta} index={index}/>)
 
 
-const pageCount = Math.ceil(transaction.length/pageData) 
+ const pageCount = Math.ceil(transaction.length/pageData) 
 
 
-const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
 
-const map = category.map((c) => {
-  return c
-})
 
-function handleCategory(category){
-  setFilter(category)
-}
-
-function filterCategory(e){
-  const filter = transaction.filter((t) => t.category === e.target.value);
-  handleCategory(filter)
-}
-
-console.log(filter)
 
     return(
         <div>
@@ -88,7 +86,7 @@ console.log(filter)
             <p>🟥: Money was substracted</p>
           </div>
           <div>
-          {currentPageData.length === 0 ? null :
+          { currentPageData.length === 0 ? null :
           <ReactPaginate
          previousLabel={"Previous"}
          nextLabel={"Next"}
@@ -98,7 +96,7 @@ console.log(filter)
          previousLinkClassName={"pagination-link"}
          nextLinkClassName={"pagination-link"}
          />  
-            }
+            } 
           </div>
           <select onChange={filterCategory}>
             <option value=""></option>
@@ -108,6 +106,8 @@ console.log(filter)
               )
             })} 
           </select>
+          <br></br>
+          <button onClick={() => {handleCategory(transaction)}}>All</button>
           <table>
        <tr className="three-sections">
          <th>Date</th>
@@ -115,7 +115,11 @@ console.log(filter)
          <th>Name</th>
          <th>Amount</th>
        </tr>
-       {currentPageData}
+       {filter.length > 0 ? filter.map((ta , index) => {
+        return(
+<Transaction key={index} ta={ta} index={index}/>
+        )
+       }) : <h2>No Data Found!</h2>}
           </table>
       </div>
 
