@@ -31,6 +31,9 @@ function handleBackGroundColor(option){
         {ta.date}
       </td>
       <td>
+        {ta.category}
+      </td>
+      <td>
         
          <Link to={`/transaction/${index}`}>{ta.item_name}</Link>
         

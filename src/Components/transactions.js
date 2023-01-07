@@ -1,7 +1,9 @@
 import { useState , useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import Transaction from "./transaction";
+import { Link } from "react-router-dom";
 import axios from "axios";
+
 const API = process.env.REACT_APP_API_URL
 
 
@@ -9,6 +11,7 @@ const pageData = 5
 
 function Transactions(){
   const [transaction , setTransaction] = useState([])
+  const [filter , setFilter] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   
   useEffect(()=> {
@@ -45,45 +48,7 @@ function Transactions(){
   }
 
 
-// const map = transaction.map((data) => {
-//   return data.category
-// })
 
-
-
-// function filterTotal(option){
-//   const filter = transaction.filter((e) => {
-//     return(
-//       e.category === option
-//     )
-//   })
-//   return filter
-// }
-
-
-// let income = 0
-
-// filterTotal("income").forEach((e) => {
-// income += Number(e.amount)
-// })
-
-// console.log(income)
-
-// let pets = 0
-//  filterTotal("pets").forEach((e) => {
-//    pets += Number(e.amount)
-//   })
-//   console.log(pets)
-
-
-
-
-
-// const unique = map.filter((v, i, a) => a.indexOf(v) === i)
-
-
-
-// console.log(unique)
 
 function handlePageChange ({selected: selectedPage}){
   setCurrentPage(selectedPage)
@@ -97,6 +62,17 @@ const currentPageData = transaction
 
 
 const pageCount = Math.ceil(transaction.length/pageData) 
+
+
+function handleCategory(category){
+  setFilter([...filter, category])
+}
+
+function filterCategory(fc){
+  const filter = transaction.filter((t) => t.category === fc);
+  handleCategory(filter)
+}
+
 
     return(
         <div>
@@ -118,9 +94,11 @@ const pageCount = Math.ceil(transaction.length/pageData)
          />  
             }
           </div>
+          
           <table>
        <tr className="three-sections">
          <th>Date</th>
+         <th>Category</th>
          <th>Name</th>
          <th>Amount</th>
        </tr>
