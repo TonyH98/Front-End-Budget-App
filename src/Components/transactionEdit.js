@@ -44,7 +44,7 @@ function TransactionEdit(){
 
 
       let currentDate = new Date().toJSON().slice(0, 10)
-
+      const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
       return(
         <div className="New">
         <form onSubmit={handleSubmit}>
@@ -81,20 +81,14 @@ function TransactionEdit(){
           <br></br>
           <br></br>
           <label htmlFor="category">Category:</label>
-        <select id="category" onChange={handleSelect}>
-          <option value=""></option>
-          <option value="Income">Income</option>
-          <option value="Taxes">Taxes</option>
-          <option value="Education">Education</option>
-          <option value="Insurance">Insurance</option>
-          <option value="House">House</option>
-          <option value="Kids">Kids</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Pets">Pets</option>
-          <option value="Car">Car</option>
-          <option value="Groceries">Groceries</option>
-          <option value="Other">Other</option>
-        </select>
+          <select onChange={handleSelect}>
+            <option value=""></option>
+            {category.map((c) => {
+              return(
+                <option value={c}>{c}</option>
+              )
+            })} 
+          </select>
           <br></br>
           <br></br>
         <br></br>

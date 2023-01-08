@@ -19,7 +19,6 @@ function App() {
     <div className="App">
       <Router>
         <Navigate/>
-     
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,7 +26,6 @@ function App() {
             <Route path="/transaction/:index" element={<TransactionDetails/>}/>
             <Route path="/transaction/new" element={<TransactionNew/>}/>
             <Route path="/transaction/:index/edit" element={<TransactionEdit/>}/>
-  
             <Route path="*"/>
           </Routes>
         </main>

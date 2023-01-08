@@ -79,7 +79,7 @@ function Transactions(){
  .map((ta , index) => <Transaction key={index} ta={ta} index={index}/>)
 
 
- const pageCount = Math.ceil(transaction.length/pageData) 
+ const pageCount = Math.ceil(filter.length/pageData) || Math.ceil(transaction.length/pageData) 
 
 
 function filterSearch(search , name){
@@ -99,7 +99,7 @@ function handleTextChange(event){
 
     return(
         <div>
-          <div>
+          <div className="searchBar">
           <label htmlFor="search">
             Search Item:
             <input
@@ -111,10 +111,6 @@ function handleTextChange(event){
             </label>
           </div>
          {handleColor()}
-          <div>
-            <p>🟩: Money was added</p>
-            <p>🟥: Money was substracted</p>
-          </div>
           <div>
           { currentPageData.length < 5  ? null :
           <ReactPaginate
@@ -129,7 +125,7 @@ function handleTextChange(event){
             } 
           </div>
           <select onChange={filterCategory}>
-            <option value=""></option>
+            <option value="">Select-Item</option>
             {category.map((c) => {
               return(
                 <option value={c}>{c}</option>
@@ -151,9 +147,8 @@ function handleTextChange(event){
         )
        }) : <h2>No Data Found!</h2>}
           </table>
+          
       </div>
-
-
     )
 }
 

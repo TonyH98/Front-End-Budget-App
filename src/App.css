@@ -119,3 +119,13 @@ td, th {
 .No-Data{
   text-align: center;
 }
+
+
+.searchBar{
+  text-align: right;
+  margin-right: 10px;
+}
+
+#search:hover{
+  background-color: lightblue;
+}
