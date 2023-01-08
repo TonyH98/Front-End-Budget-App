@@ -116,7 +116,7 @@ function handleTextChange(event){
             <p>🟥: Money was substracted</p>
           </div>
           <div>
-          { currentPageData.length === 0 ? null :
+          { currentPageData.length < 5  ? null :
           <ReactPaginate
          previousLabel={"Previous"}
          nextLabel={"Next"}
