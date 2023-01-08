@@ -11,7 +11,9 @@ const API = process.env.REACT_APP_API_URL
 function Transactions(){
   const [transaction , setTransaction] = useState([])
   const [filter , setFilter] = useState([])
+  const [searchFilter , setSearchFilter] = useState([])
    const [currentPage, setCurrentPage] = useState(0)
+   const [search , setSearch] = useState("")
   
   useEffect(()=> {
     axios.get(`${API}/transaction`)
@@ -19,6 +21,11 @@ function Transactions(){
     .catch(err => console.log(err))
   }, [])
   
+  useEffect(()=> {
+    axios.get(`${API}/transaction`)
+    .then((res) => setSearchFilter(res.data))
+    .catch(err => console.log(err))
+  }, [])
   
   
   const getTotal = (account) => {
@@ -75,11 +82,34 @@ function Transactions(){
  const pageCount = Math.ceil(transaction.length/pageData) 
 
 
+function filterSearch(search , name){
+  return(
+    name.filter((e) => e.item_name.toLowerCase().match(search.toLowerCase()))
+  )
+}
 
+
+function handleTextChange(event){
+  const name = event.target.value
+  const result = name ? filterSearch(name , searchFilter ) : searchFilter
+  setFilter(result)
+ setSearch(name)
+}
 
 
     return(
         <div>
+          <div>
+          <label htmlFor="search">
+            Search Item:
+            <input
+              type="text"
+               value={search}
+              id="search"
+              onChange={handleTextChange}
+            />
+            </label>
+          </div>
          {handleColor()}
           <div>
             <p>🟩: Money was added</p>
