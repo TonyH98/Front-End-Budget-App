@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+Back-end Link: https://github.com/TonyH98/budget-app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Netlify Deployment: https://coruscating-fairy-922c8b.netlify.app/
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Full Stack Budgeting App
+Create a backend API using Express that performs full CRUD on a single model, transactions. Then, using RESTful routes, connect it to a React app.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Overview
+Follow the instructions and User Stories to meet the criteria for this project. Use Images in these instructions as a reference only.
+Use Express to build a back-end.
+Use create-react-app to build a front-end.
+Connect the back-end and the front-end.
+Deploy both apps so anyone can see them online.
+User Stories, Acceptance Criteria and Code Quality Rubric
+You must implement all of the user stories and acceptance criteria below. After those are completed, look at and implement as many of the bonus features as you want to.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Be sure to build this out as a portfolio piece: Something you would be excited to show to a potential employer and be able to talk through the code with them.
 
-### `npm run eject`
+User Stories
+You must successfully build a minimum of 6 out of 9 features to pass this project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+(1) Navigation/Nav Bar
+The Nav bar allows me to navigate to the Index and New pages
+(2) Index Page
+I can see a list of income and expenditures with the date, the transaction name and the amount on the Index page.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+There is also an Account total visible that sums all the different expenditures and shows the user how much money they currently have.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+(3) New Page
+I can click on a "New" button that takes me to the New page, with a form that lets me create a new transaction.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Once a transaction is created, I am navigated back to the Index page
 
-## Learn More
+(4) Show Page
+I can see a single expenditure with more details and appropriate navigation links
+(5) Edit page
+I can see a form that is pre-filled with an individual expenditure that allows me to update the expenditure. Once updated, I am taken back to the show page where I should be able to see the updated transaction, without needing to refresh the page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The edit form is accessible either from the Show page or Index page via button/link.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+(6) Delete functionality
+The expenditure can be deleted.
 
-### Code Splitting
+The delete functionality is accessible either from the Show page or Index page via button/link.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+(7) Account Total
+The account total is visible either on the Index page (this is more straightforward) or in the Nav Bar (this is more challenging).
 
-### Analyzing the Bundle Size
+The account CSS changes depending on the amount. The account should show green (or similar color) if the amount is above $1000. There should be neutral/white color between $0 - $1000. And it should show a red (or similar color) if the bank account value falls below $0.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The changing color can be text, background, border, as long as it is in/near the account total and provides clarity with what it is showing.
 
-### Making a Progressive Web App
+(8) UX/UI
+There is effort to make the app styled. Forms are styled and properly labeled. The navigation is clear and easy to use, a color theme has been chosen and applied. At least one font has been chosen and applied. The app is responsive (readable/usable) across multiple screen sizes/widths.
+(9) Deployed online
+I can visit the application via the internet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Netlify is configured correctly that I can send a link to the New page to someone and it works (does not give a 404)
 
-### Advanced Configuration
+Bonus Feature
+There is implementation of at least one bonus feature beyond what has been taught in class/required in lab/required in the rest of the criteria.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This can be a CSS framework, a new NPM package, a chart that shows the data in a new way, working with the date object instead of strings etc. Please confirm with your instructor.
 
-### Deployment
+Acceptance Criteria
+Back-end
+For the back-end to be complete, the following must be true:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The application uses express, dotenv, cors.
+The application is deployed and can be accessed from your React front-end app and Postman.
+The application has the following routes and work as described below.
+The application handles common errors and has any necessary validations
+#	Action	URL	HTTP Verb	CRUD	Description
+1	Index	/transactions	GET	Read	Get a list (or index) of all transactions
+2	Show	/transactions/:id	GET	Read	Get an individual view (show one transactions)
+3	Create	/transactions	POST	Create	Create a new transactions
+4	Destroy	/transactions/:id	DELETE	Delete	Delete a transactions
+5	Update	/transactions/:id	PUT	Update	Update a transactions
+Note: All of the above routes should work both with an application like Postman and a front-end framework like React
 
-### `npm run build` fails to minify
+Model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+There will be one model with at least these components
+item_name- string - the name of the transaction (ie: income, savings, cat food, etc.)
+amount -number - the amount of the transaction
+date- string - the date should be a simple string. As a bonus activity, use the date object and date input field and format it to be human-readable
+from - string - who this transacton was with (ie. employer, bank, pet store, grocery store, etc)
+category - string - what category does this fall into (income, savings, pets, food, etc) - bonus, make this an options list on the new/edit forms.
+Front-End
+For the front-end to be complete, the following must be true:
+
+The application is deployed.
+
+The navigation bar allows the user to switch between the "Index" and "New" pages. Bonus: shows amount total.
+
+The following is present on the "Index" page:
+
+The navigation bar.
+A list of transactions that have the following properties visible:
+date - a string, in any format.
+name - a string, representing the name of the transactions.
+amount - a number, representing the amount of the expenditure/income.
+The bank account total somewhere near the top.
+The bank account CSS changes depending on the amount in the bank account
+The following is present on the "New" page:
+
+The navigation bar.
+The url will be /transactions/new.
+The form to create new transactions, which has four fields.
+date - a string, in any format.
+name - a string, the name of the transactions.
+amount - a number, the amount of the expenditure/income.
+from - a string, where this expense/income has come from.
+category - a string. As a bonus, this can be an options menu.
+The following is present on the "Show" page
+
+date - a string, in any format.
+name - a string, the name of the transactions.
+amount - a number, the amount of the expenditure/income.
+from - a string, where this expense/income has come from.
+category - a string`
+The following is present on the "Edit" page
+
+The navigation bar.
+The url will be /transactions/new.
+The form to create new transactions, which has four fields.
+date - a string, in any format.
+name - a string, the name of the transactions.
+amount - a number, the amount of the expenditure/income.
+from - a string, where this expense/income has come from.
+category - a string. As a bonus, this can be an options menu.
+Bonus Ideas:
+Change favicon from default react app.
+Add some logic/functionality that will make income a positive number and an expenditure a negative number, rather than having the user type it in.
+Use react-bootstrap or a similar CSS framework to help style your app.
+Show the amount in the nav bar, so it is visible on every view.
+Use the date object for the date, instead of just a string.
+Use the input type date for the date.
+Add a library like chartjs or D3 to provide visualizations the budget app.
+Be sure to confirm with your instructor which bonus idea you will implement.
