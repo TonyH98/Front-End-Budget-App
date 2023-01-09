@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 
 function Transaction({ta , index}){
 
+
+
+
 function handleBackGroundColor(option){
   if(ta.amount < 0){
     return(
@@ -12,23 +15,16 @@ function handleBackGroundColor(option){
   }
   if(ta.amount >= 0){
     return(
-
       <td style={{backgroundColor:"lightgreen"}}>{option}</td>
     )
   }
 }
 
 
-
-
-
-
-
-
    return (
     <tr>
       <td>
-        {ta.date}
+     {ta.date}
       </td>
       <td>
         {ta.category}

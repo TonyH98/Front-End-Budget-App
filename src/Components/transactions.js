@@ -76,10 +76,11 @@ function Transactions(){
 
  const currentPageData = filter
 .slice(offSet, offSet + pageData)
- .map((ta , index) => <Transaction key={index} ta={ta} index={index}/>)
+ .map((ta , index) => <Transaction
+  key={index} ta={ta} index={index}/>)
 
 
- const pageCount = Math.ceil(filter.length/pageData) || Math.ceil(transaction.length/pageData) 
+ const pageCount =  Math.ceil(filter.length/pageData) 
 
 
 function filterSearch(search , name){
@@ -112,7 +113,7 @@ function handleTextChange(event){
           </div>
          {handleColor()}
           <div>
-          { currentPageData.length < 5  ? null :
+          { currentPageData.length === 0  ? null :
           <ReactPaginate
          previousLabel={"Previous"}
          nextLabel={"Next"}
@@ -141,11 +142,7 @@ function handleTextChange(event){
          <th>Name</th>
          <th>Amount</th>
        </tr>
-       {filter.length > 0 ? filter.map((ta , index) => {
-        return(
-<Transaction key={index} ta={ta} index={index}/>
-        )
-       }) : <h2>No Data Found!</h2>}
+       {currentPageData.length > 0? currentPageData : <h2>No Data Found!</h2>}
           </table>
           
       </div>
