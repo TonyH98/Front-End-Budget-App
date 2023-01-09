@@ -1,4 +1,5 @@
 import { useState , useEffect} from "react";
+
 import ReactPaginate from "react-paginate";
 import Transaction from "./transaction";
 import axios from "axios";
@@ -98,6 +99,8 @@ function handleTextChange(event){
 }
 
 
+
+
     return(
         <div>
           <div className="searchBar">
@@ -142,7 +145,7 @@ function handleTextChange(event){
          <th>Name</th>
          <th>Amount</th>
        </tr>
-       {currentPageData.length > 0? currentPageData : <h2>No Data Found!</h2>}
+       {currentPageData.length > 0 ? currentPageData : <h2>No Data Found!</h2>}
           </table>
           
       </div>
