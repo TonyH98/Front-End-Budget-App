@@ -3,7 +3,7 @@ import { useState , useEffect} from "react";
 import ReactPaginate from "react-paginate";
 import Transaction from "./transaction";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 const API = process.env.REACT_APP_API_URL
 
 
@@ -147,7 +147,9 @@ function handleTextChange(event){
        </tr>
        {currentPageData.length > 0 ? currentPageData : <h2>No Data Found!</h2>}
           </table>
-          
+          <Link to="/transaction/chart">
+          <button>Chart</button>
+          </Link>
       </div>
     )
 }

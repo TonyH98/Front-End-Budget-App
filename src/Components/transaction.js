@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useNavigate }  from "react-router-dom";
+
 import axios from "axios";
 const API = process.env.REACT_APP_API_URL
 function Transaction({ta , index}){
@@ -50,6 +51,7 @@ function handleDelete(){
        ${handleBackGroundColor(ta.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}
        <button className="transaction-buttons" onClick={handleDelete}>Delete</button>
       </td>
+  
     </tr>
    )
 }
