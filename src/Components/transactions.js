@@ -1,5 +1,4 @@
 import { useState , useEffect} from "react";
-
 import ReactPaginate from "react-paginate";
 import Transaction from "./transaction";
 import axios from "axios";
@@ -99,8 +98,6 @@ function handleTextChange(event){
 }
 
 
-
-
     return(
         <div>
           <div className="searchBar">
@@ -118,13 +115,14 @@ function handleTextChange(event){
           <div>
           { currentPageData.length === 0  ? null :
           <ReactPaginate
-         previousLabel={"Previous"}
-         nextLabel={"Next"}
+         previousLabel={"<"}
+         nextLabel={">"}
          pageCount={pageCount}
          onPageChange={handlePageChange}
          containerClassName={"pagination"}
          previousLinkClassName={"pagination-link"}
          nextLinkClassName={"pagination-link"}
+         pageClassName={"pageCount"}
          />  
             } 
           </div>
@@ -147,9 +145,10 @@ function handleTextChange(event){
        </tr>
        {currentPageData.length > 0 ? currentPageData : <h2>No Data Found!</h2>}
           </table>
-          <Link to="/transaction/chart">
+          {currentPageData.length === 0 ? null : <Link to="/transaction/chart">
           <button>Chart</button>
-          </Link>
+          </Link>}
+          
       </div>
     )
 }

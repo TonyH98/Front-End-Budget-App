@@ -17,16 +17,14 @@ ReactFC.fcRoot(FusionCharts, pie2D, FusionTheme);
 
 
 function TransactionChart(){
-    // const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
      const [transaction , setTransaction] = useState([])
-
-
 
     useEffect(()=> {
         axios.get(`${API}/transaction`)
         .then((res) => setTransaction(res.data))
         .catch(err => console.log(err))
       }, [])
+
 
 function getByCategory(data){
     const filter = transaction.filter((x) => {
@@ -39,14 +37,12 @@ function getByCategory(data){
 
 }
     
-
-// const category = ["Income" , "Taxes", "Eduction", "Insurance", "House", "Kids", "Entertainment", "Pets", "Car", "Groceries", "Other"]
-
 let income = 0
 
 getByCategory("Income").forEach((x) => {
-    income += x.amount
+    income += Math.abs(x.amount)
 })
+
 
 
 let taxes = 0
@@ -102,7 +98,7 @@ getByCategory("Car").forEach((x) => {
 
 let groceries = 0
 
-getByCategory("groceries").forEach((x) => {
+getByCategory("Groceries").forEach((x) => {
     groceries += Math.abs(x.amount)
 })
 
@@ -111,6 +107,9 @@ let other = 0
 getByCategory("Other").forEach((x) => {
     other += Math.abs(x.amount)
 })
+
+
+
 
     const chartConfigs = {
       type: "pie2d",
@@ -130,7 +129,6 @@ getByCategory("Other").forEach((x) => {
             
 
         data:[
-            {label: 'Income', value: income},
             {label: "Taxes" , value: taxes},
             {label: "Education", value: education},
             {label: "Insurance", value: insurance},

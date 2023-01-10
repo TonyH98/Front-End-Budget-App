@@ -110,7 +110,7 @@ td, th {
    
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, 15px);
     color:  #002D62;
     cursor: pointer;
     list-style: none;
@@ -129,3 +129,6 @@ td, th {
 #search:hover{
   background-color: lightblue;
 }
+
+
+

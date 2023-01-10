@@ -1,5 +1,4 @@
 import './App.css';
-
 import Navigate from './Components/navigate';
 import Home from './Components/Home';
 import Transactions from './Components/transactions'
@@ -9,10 +8,9 @@ import TransactionEdit from './Components/transactionEdit';
 import TransactionChart from './Components/transactionChart';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-
 function App() {
  
+
   return (
     <div className="App">
       <Router>
